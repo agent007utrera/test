@@ -3,27 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reproductor de Audio</title>
+    <title>Reproductor de Medios</title>
 </head>
 <body>
 
-<h1>Reproductor de Audio</h1>
+<h1>Reproductor de Audio y Video</h1>
 
-<!-- Botones para cambiar de pista -->
-<button onclick="cargarAudio('audio1.mp3')">Audio1</button>
-<button onclick="cargarAudio('audio2.mp3')">Audio2</button>
+<!-- Botones para seleccionar medios -->
+<button onclick="cargarAudio('archivos/audio1.mp3')">AUDIO1</button>
+<button onclick="cargarAudio('archivos/audio2.mp3')">AUDIO2</button>
+<button onclick="cargarVideo('archivos/video1.mp4')">VIDEO1</button>
+<button onclick="cargarVideo('archivos/video2.mp4')">VIDEO2</button>
 
-<!-- Elemento de audio con controles visibles -->
-<audio id="reproductor" controls>
+<!-- Reproductor de audio -->
+<audio id="reproductorAudio" controls>
     Tu navegador no soporta el elemento de audio.
 </audio>
+
+<!-- Reproductor de video -->
+<video id="reproductorVideo" width="640" height="360" controls hidden>
+    Tu navegador no soporta el elemento de video.
+</video>
 
 <script>
     // Función para cargar y reproducir audio
     function cargarAudio(archivo) {
-        const reproductor = document.getElementById("reproductor");
-        reproductor.src = archivo;
-        reproductor.play();
+        const reproductorAudio = document.getElementById("reproductorAudio");
+        const reproductorVideo = document.getElementById("reproductorVideo");
+
+        // Pausar el video si está en reproducción
+        reproductorVideo.pause();
+        reproductorVideo.hidden = true;  // Ocultar el reproductor de video
+
+        // Configurar el archivo de audio y reproducirlo
+        reproductorAudio.src = archivo;
+        reproductorAudio.hidden = false;  // Mostrar el reproductor de audio
+        reproductorAudio.play();
+    }
+
+    // Función para cargar y reproducir video
+    function cargarVideo(archivo) {
+        const reproductorAudio = document.getElementById("reproductorAudio");
+        const reproductorVideo = document.getElementById("reproductorVideo");
+
+        // Pausar el audio si está en reproducción
+        reproductorAudio.pause();
+        reproductorAudio.hidden = true;  // Ocultar el reproductor de audio
+
+        // Configurar el archivo de video y reproducirlo
+        reproductorVideo.src = archivo;
+        reproductorVideo.hidden = false;  // Mostrar el reproductor de video
+        reproductorVideo.play();
     }
 </script>
     <h1>Descargar Archivos PDF</h1>
@@ -56,7 +86,16 @@
     <div class="archivo">
         <p>Archivo 3</p>
         <a href="https://view.genially.com/63e2c65d07d4b7001b059dca/interactive-content-the-lord-of-the-rings" download>The Lord of the Rings</a>
-    </div>
 
+    <h1>Enlaces vídeos</h1>
+    <div class="archivo">
+        <p>Archivo 4</p>
+        <a href="https://www.youtube.com/watch?v=79593eSgrlI" target="_blank" download>Background</a>
+        <a href="https://www.youtube.com/watch?v=jTAJxuk0lIg&pp=ygUUZ3JlZW4gc2NyZWVuIGR1bmdlb24%3D" target="_blank" download>Torches</a>
+        <a href="https://www.youtube.com/watch?v=N7vjeGvrDv4" target="_blank" download>Door1</a>
+        <a href="https://www.youtube.com/watch?v=1hm1br-xQT8" target="_blank" download>Door2</a>
+        <a href="https://www.youtube.com/watch?v=a7telkbjZqA" target="_blank" download>Door3</a>
+        <a href="https://www.youtube.com/watch?v=pZAGIFyZF44" target="_blank" download>Pack</a>
+    </div>
 </body>
 </html>
