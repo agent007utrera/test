@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English</title>
+</head>
+<body>
+
+<h1>English</h1>
+
+<!-- Botones para seleccionar medios -->
+<button onclick="cargarAudio('archivos/audio1.mp3')">AUDIO1</button>
+<button onclick="cargarAudio('archivos/audio2.mp3')">AUDIO2</button>
+<button onclick="cargarVideo('archivos/daysweek1.mp4')">Days of the week 1</button>
+<button onclick="cargarVideo('archivos/daysweek2.mp4')">Days of the week 2</button>
+<button onclick="cargarVideo('archivos/house.mp4')">House</button>
+<button onclick="cargarVideo('archivos/housesong.mp4')">House song</button>
+
+<!-- Reproductor de audio -->
+<audio id="reproductorAudio" controls>
+    Tu navegador no soporta el elemento de audio.
+</audio>
+
+<!-- Reproductor de video -->
+<video id="reproductorVideo" width="640" height="360" controls hidden>
+    Tu navegador no soporta el elemento de video.
+</video>
+
+<script>
+    // Función para cargar y reproducir audio
+    function cargarAudio(archivo) {
+        const reproductorAudio = document.getElementById("reproductorAudio");
+        const reproductorVideo = document.getElementById("reproductorVideo");
+
+        // Pausar el video si está en reproducción
+        reproductorVideo.pause();
+        reproductorVideo.hidden = true;  // Ocultar el reproductor de video
+
+        // Configurar el archivo de audio y reproducirlo
+        reproductorAudio.src = archivo;
+        reproductorAudio.hidden = false;  // Mostrar el reproductor de audio
+        reproductorAudio.play();
+    }
+
+    // Función para cargar y reproducir video
+    function cargarVideo(archivo) {
+        const reproductorAudio = document.getElementById("reproductorAudio");
+        const reproductorVideo = document.getElementById("reproductorVideo");
+
+        // Pausar el audio si está en reproducción
+        reproductorAudio.pause();
+        reproductorAudio.hidden = true;  // Ocultar el reproductor de audio
+
+        // Configurar el archivo de video y reproducirlo
+        reproductorVideo.src = archivo;
+        reproductorVideo.hidden = false;  // Mostrar el reproductor de video
+        reproductorVideo.play();
+    }
+</script>
+
+
+    <h1>Macmillan</h1>
+    <div class="archivo">
+        <p>Macmillan</p>
+        <a href="https://www.macmillaneducationeverywhere.com/" target="_blank" download>Macmillan</a>
+        <p>Unit 2 - Wordwall</p>
+        <a href="https://wordwall.net/es/resource/102522867/" target="_blank" download>Wordwall</a>
+        <p>Youtube</p>
+        <a href="https://www.youtube.com/?app=desktop&hl=es" target="_blank" download>YouTube</a>
+        <p>Biblioteca de Manpang</p>
+        <a href="https://manpang.blogspot.com/p/biblioteca-de-manpang.html" target="_blank" download>Biblioteca de Manpang</a>
+        <p>Martian Dice</p>
+        <a href="https://playingcards.io/s26qq2" target="_blank" download>Martian Dice</a>
+
+    </div>
+
+    <h1>Descargar Archivos PDF</h1>
+    <div class="archivo">
+        <p>Archivo 1</p>
+        <a href="archivos/archivo1.pdf" download>Descargar Archivo 1</a>
+    </div>
+    <div class="archivo">
+        <p>Archivo 2</p>
+        <a href="archivos/archivo2.pdf" download>Descargar Archivo 2</a>
+    </div>
+
+    <h1>EuroCup</h1>
+    <div class="archivo">
+        <p>Archivo 1</p>
+        <a href="https://wordwall.net/es/resource/89058391/english/eurocup-2024" download>Rueda</a>
+        <p>Archivo 2</p>
+        <a href="archivos/euro.xlsx" download>Excel</a>
+        <p>5A</p>
+        <a href="https://docs.google.com/spreadsheets/d/1LxPYwWodY3ygxti_lnTt4RMl5r8PLArQ/edit?usp=sharing&ouid=114449747404473684266&rtpof=true&sd=true" download>Excel 5A</a>
+    </div>
+
+    <h1>The Lord of the Rings</h1>
+    <div class="archivo">
+        <p>Juegos de mesa</p>
+        <a href="https://view.genially.com/63e2c65d07d4b7001b059dca/interactive-content-the-lord-of-the-rings" target="_blank" download>The Lord of the Rings</a>
+   <h1>Hero Kids</h1>
+        <a href="archivos/hero_kids_guia.pdf" target="_blank" download>Hero Kids Guía</a>
+	<button onclick="cargarVideo('archivos/hero_kids_video.mp4')">Hero Kids</button>
+	<button onclick="cargarVideo('archivos/starport.mp4')">Starport</button>
+    <div class="archivo">
+        <p>Escenarios</p>
+        <a href="https://view.genially.com/6928a4f360210cce9b579cab/interactive-content-herokidssotanoratas" target="_blank" download>Hero Kids - El Sótano de las Ratas</a>
+        <a href="https://view.genially.com/6932bbe8007afc0cdce67fbd/interactive-content-herokidshuidapiratas" target="_blank" download>Hero Kids - Huida de los Piratas Fantasmas</a>
+
+
+  <h1>Apocalipsis Zombi</h1>
+        <a href="archivos/z_noticiario.pdf" target="_blank" download>Noticiario Guía</a>
+        <a href="archivos/z_colegio.pdf" target="_blank" download>Enclave Escolar Guía</a>
+	<button onclick="cargarVideo('archivos/z_noticiario.mp4')">Noticiario</button>
+	<button onclick="cargarVideo('archivos/z_colegio.mp4')">Enclave Escolar</button>
+
+</body>
+</html>
