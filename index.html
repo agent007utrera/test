@@ -4,129 +4,253 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>English</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --bg: #F7FFF7;
+            --text: #2F2F2F;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 3rem;
+            text-shadow: 2px 2px 0px var(--accent);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #45b7af;
+            border-bottom: 3px dashed var(--accent);
+            padding-bottom: 10px;
+            width: 100%;
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        /* Sección de reproductores */
+        .media-player-section {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            text-align: center;
+            border: 4px solid var(--secondary);
+        }
+
+        video, audio {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 15px;
+            margin-top: 15px;
+            background: #000;
+        }
+
+        /* Rejilla de botones y tarjetas */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+            border-bottom: 5px solid var(--secondary);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Estilo de botones */
+        button, .btn-link {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        button:hover, .btn-link:hover {
+            background-color: var(--primary);
+            box-shadow: 0 4px 0px #d65a5a;
+        }
+
+        .btn-audio { background-color: #ff9f43; }
+        .btn-video { background-color: #54a0ff; }
+        .btn-pdf { background-color: #ee5253; }
+        .btn-web { background-color: #10ac84; }
+
+        /* Etiquetas y textos */
+        .card p {
+            margin: 0;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .section-icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+    </style>
 </head>
 <body>
 
-<h1>English</h1>
+    <div class="container">
+        <h1>🇬🇧 English Class 🇬🇧</h1>
 
-<!-- Botones para seleccionar medios -->
-<button onclick="cargarAudio('archivos/audio1.mp3')">AUDIO1</button>
-<button onclick="cargarAudio('archivos/audio2.mp3')">AUDIO2</button>
-<button onclick="cargarVideo('archivos/daysweek1.mp4')">Days of the week 1</button>
-<button onclick="cargarVideo('archivos/daysweek2.mp4')">Days of the week 2</button>
-<button onclick="cargarVideo('archivos/house.mp4')">House</button>
-<button onclick="cargarVideo('archivos/housesong.mp4')">House song</button><br>
+        <div class="media-player-section">
+            <p id="media-status">Selecciona una actividad para empezar</p>
+            <audio id="reproductorAudio" controls hidden></audio>
+            <video id="reproductorVideo" controls hidden></video>
+        </div>
 
-<!-- Reproductor de audio -->
-<audio id="reproductorAudio" controls>
-    Tu navegador no soporta el elemento de audio.
-</audio>
+        <h2><span class="section-icon">📺</span>Vídeos y Canciones</h2>
+        <div class="grid">
+            <div class="card">
+                <p>Listen & Watch:</p>
+                <button class="btn-audio" onclick="cargarAudio('archivos/audio1.mp3')">🎵 AUDIO 1</button>
+                <button class="btn-audio" onclick="cargarAudio('archivos/audio2.mp3')">🎵 AUDIO 2</button>
+            </div>
+            <div class="card">
+                <p>Days of the week:</p>
+                <button class="btn-video" onclick="cargarVideo('archivos/daysweek1.mp4')">🎬 Video 1</button>
+                <button class="btn-video" onclick="cargarVideo('archivos/daysweek2.mp4')">🎬 Video 2</button>
+            </div>
+            <div class="card">
+                <p>The House:</p>
+                <button class="btn-video" onclick="cargarVideo('archivos/house.mp4')">🏠 House Video</button>
+                <button class="btn-video" onclick="cargarVideo('archivos/housesong.mp4')">🎶 House Song</button>
+            </div>
+        </div>
 
-<!-- Reproductor de video -->
-<video id="reproductorVideo" width="640" height="360" controls hidden>
-    Tu navegador no soporta el elemento de video.
-</video>
+        <h2><span class="section-icon">🔗</span>Recursos Online</h2>
+        <div class="grid">
+            <div class="card">
+                <p>Plataformas:</p>
+                <a href="https://www.macmillaneducationeverywhere.com/" target="_blank" class="btn-link btn-web">Macmillan Education</a>
+                <a href="https://www.youtube.com/?app=desktop&hl=es" target="_blank" class="btn-link btn-web">YouTube</a>
+            </div>
+            <div class="card">
+                <p>Wordwall Games:</p>
+                <a href="https://wordwall.net/es/resource/102522867/" target="_blank" class="btn-link btn-web">Game 2-2</a>
+                <a href="https://wordwall.net/es/resource/104518736/" target="_blank" class="btn-link btn-web">Game 2-3</a>
+                <a href="https://wordwall.net/es/resource/104519049" target="_blank" class="btn-link btn-web">Game 2-4</a>
+                <a href="https://wordwall.net/es/resource/104519902" target="_blank" class="btn-link btn-web">Game 6-3</a>
+            </div>
+            <div class="card">
+                <p>Extra:</p>
+                <a href="https://manpang.blogspot.com/p/biblioteca-de-manpang.html" target="_blank" class="btn-link btn-web">Biblioteca de Manpang</a>
+                <a href="https://playingcards.io/s26qq2" target="_blank" class="btn-link btn-web">Martian Dice</a>
+            </div>
+        </div>
 
-<script>
-    // Función para cargar y reproducir audio
-    function cargarAudio(archivo) {
-        const reproductorAudio = document.getElementById("reproductorAudio");
-        const reproductorVideo = document.getElementById("reproductorVideo");
+        <h2><span class="section-icon">📄</span>Fichas PDF</h2>
+        <div class="grid">
+            <div class="card">
+                <p>Fichas de clase:</p>
+                <a href="archivos/archivo1.pdf" target="_blank" class="btn-link btn-pdf">📄 Ver Archivo 1</a>
+                <a href="archivos/archivo2.pdf" target="_blank" class="btn-link btn-pdf">📄 Ver Archivo 2</a>
+                <a href="archivos/archivo3.pdf" target="_blank" class="btn-link btn-pdf">📄 Ver Archivo 3</a>
+            </div>
+        </div>
 
-        // Pausar el video si está en reproducción
-        reproductorVideo.pause();
-        reproductorVideo.hidden = true;  // Ocultar el reproductor de video
+        <h2><span class="section-icon">🎲</span>Proyectos y Juegos</h2>
+        <div class="grid">
+            <div class="card">
+                <p>EuroCup 2024:</p>
+                <a href="https://wordwall.net/es/resource/89058391/english/eurocup-2024" class="btn-link">🎡 Rueda</a>
+                <a href="archivos/euro.xlsx" class="btn-link">📊 Excel</a>
+                <a href="https://docs.google.com/spreadsheets/d/1LxPYwWodY3ygxti_lnTt4RMl5r8PLArQ/edit" class="btn-link">🟢 Excel 5A</a>
+            </div>
+            <div class="card">
+                <p>The Lord of the Rings:</p>
+                <a href="https://view.genially.com/63e2c65d07d4b7001b059dca/interactive-content-the-lord-of-the-rings" target="_blank" class="btn-link">💍 Genially Game</a>
+            </div>
+            <div class="card">
+                <p>Hero Kids:</p>
+                <a href="archivos/hero_kids_guia.pdf" target="_blank" class="btn-link btn-pdf">📚 Guía PDF</a>
+                <button class="btn-video" onclick="cargarVideo('archivos/hero_kids_video.mp4')">🎬 Hero Kids Video</button>
+                <button class="btn-video" onclick="cargarVideo('archivos/starport.mp4')">🎬 Starport</button>
+                <a href="https://view.genially.com/6928a4f360210cce9b579cab/interactive-content-herokidssotanoratas" target="_blank" class="btn-link">💍 Sótano de las ratas</a>
+                <a href="https://view.genially.com/6932bbe8007afc0cdce67fbd/interactive-content-herokidshuidapiratas" target="_blank" class="btn-link">💍 Huida de los piratas fantasmas</a>
+            </div>
+        </div>
 
-        // Configurar el archivo de audio y reproducirlo
-        reproductorAudio.src = archivo;
-        reproductorAudio.hidden = false;  // Mostrar el reproductor de audio
-        reproductorAudio.play();
-    }
-
-    // Función para cargar y reproducir video
-    function cargarVideo(archivo) {
-        const reproductorAudio = document.getElementById("reproductorAudio");
-        const reproductorVideo = document.getElementById("reproductorVideo");
-
-        // Pausar el audio si está en reproducción
-        reproductorAudio.pause();
-        reproductorAudio.hidden = true;  // Ocultar el reproductor de audio
-
-        // Configurar el archivo de video y reproducirlo
-        reproductorVideo.src = archivo;
-        reproductorVideo.hidden = false;  // Mostrar el reproductor de video
-        reproductorVideo.play();
-    }
-</script>
-
-
-    <h1>Macmillan</h1>
-    <div class="archivo">
-        <p>Macmillan</p>
-        <a href="https://www.macmillaneducationeverywhere.com/" target="_blank" download>Macmillan</a>
-
-        <p>Wordwall</p>
-        <a href="https://wordwall.net/es/resource/102522867/" target="_blank" download>2-2</a><br>
-        <a href="https://wordwall.net/es/resource/104518736/" target="_blank" download>2-3</a><br>
-        <a href="https://wordwall.net/es/resource/104519049" target="_blank" download>2-4</a><br>
-        <a href="https://wordwall.net/es/resource/104519902/" target="_blank" download>6-3</a><br>
-
-        <p>Youtube</p>
-        <a href="https://www.youtube.com/?app=desktop&hl=es" target="_blank" download>YouTube</a>
-        <p>Biblioteca de Manpang</p>
-        <a href="https://manpang.blogspot.com/p/biblioteca-de-manpang.html" target="_blank" download>Biblioteca de Manpang</a>
-        <p>Martian Dice</p>
-        <a href="https://playingcards.io/s26qq2" target="_blank" download>Martian Dice</a>
-
+        <h2><span class="section-icon">🧟</span>Apocalipsis Zombi</h2>
+        <div class="grid">
+            <div class="card">
+                <p>Materiales Z:</p>
+                <a href="archivos/z_noticiario.pdf" target="_blank" class="btn-link btn-pdf">📰 Noticiario Guía</a>
+                <a href="archivos/z_colegio.pdf" target="_blank" class="btn-link btn-pdf">🏫 Enclave Escolar</a>
+                <button class="btn-video" onclick="cargarVideo('archivos/z_noticiario.mp4')">📺 Video Noticiario</button>
+                <button class="btn-video" onclick="cargarVideo('archivos/z_colegio.mp4')">📺 Video Colegio</button>
+                <a href="https://view.genially.com/694884136566fce0011ae95d/interactive-content-apocalipsisschool" target="_blank" class="btn-link">🎮 Genially Zombi</a>
+            </div>
+        </div>
     </div>
 
-    <h1>Archivos PDF</h1>
-    <div class="archivo">
-        <p>Archivo 1</p>
-    <a href="archivos/archivo1.pdf" target="_blank" rel="noopener noreferrer">Ver Archivo 1</a>
-    </div>
-    <div class="archivo">
-        <p>Archivo 2</p>
-    <a href="archivos/archivo2.pdf" target="_blank" rel="noopener noreferrer">Ver Archivo 2</a>
-    </div>
-    <div class="archivo">
-        <p>Archivo 3</p>
-    <a href="archivos/archivo3.pdf" target="_blank" rel="noopener noreferrer">Ver Archivo 3</a>
-    </div>
+    <script>
+        const audioPlayer = document.getElementById("reproductorAudio");
+        const videoPlayer = document.getElementById("reproductorVideo");
+        const statusText = document.getElementById("media-status");
 
-    <h1>EuroCup</h1>
-    <div class="archivo">
-        <p>Archivo 1</p>
-        <a href="https://wordwall.net/es/resource/89058391/english/eurocup-2024" download>Rueda</a>
-        <p>Archivo 2</p>
-        <a href="archivos/euro.xlsx" download>Excel</a>
-        <p>5A</p>
-        <a href="https://docs.google.com/spreadsheets/d/1LxPYwWodY3ygxti_lnTt4RMl5r8PLArQ/edit?usp=sharing&ouid=114449747404473684266&rtpof=true&sd=true" download>Excel 5A</a>
-    </div>
+        function cargarAudio(archivo) {
+            videoPlayer.pause();
+            videoPlayer.hidden = true;
 
-    <h1>The Lord of the Rings</h1>
-    <div class="archivo">
-        <p>Juegos de mesa</p>
-        <a href="https://view.genially.com/63e2c65d07d4b7001b059dca/interactive-content-the-lord-of-the-rings" target="_blank" download>The Lord of the Rings</a>
-   <h1>Hero Kids</h1>
-        <a href="archivos/hero_kids_guia.pdf" target="_blank" download>Hero Kids Guía</a>
-	<button onclick="cargarVideo('archivos/hero_kids_video.mp4')">Hero Kids</button>
-	<button onclick="cargarVideo('archivos/starport.mp4')">Starport</button>
-    <div class="archivo">
-        <p>Escenarios</p>
-        <a href="https://view.genially.com/6928a4f360210cce9b579cab/interactive-content-herokidssotanoratas" target="_blank" download>Hero Kids - El Sótano de las Ratas</a><br>
-        <a href="https://view.genially.com/6932bbe8007afc0cdce67fbd/interactive-content-herokidshuidapiratas" target="_blank" download>Hero Kids - Huida de los Piratas Fantasmas</a><br>
+            audioPlayer.src = archivo;
+            audioPlayer.hidden = false;
+            audioPlayer.play();
+            statusText.innerText = "Reproduciendo Audio: " + archivo.split('/').pop();
+        }
 
+        function cargarVideo(archivo) {
+            audioPlayer.pause();
+            audioPlayer.hidden = true;
 
-  <h1>Apocalipsis Zombi</h1>
-
-    <a href="archivos/z_noticiario.pdf" target="_blank" rel="noopener noreferrer">Noticiario Guía</a><br>
-    <a href="archivos/z_colegio.pdf" target="_blank" rel="noopener noreferrer">Enclave Escolar Guía</a><br>
-	<button onclick="cargarVideo('archivos/z_noticiario.mp4')">Noticiario</button><br>
-	<button onclick="cargarVideo('archivos/z_colegio.mp4')">Enclave Escolar</button><br>
-        <a href="https://view.genially.com/694884136566fce0011ae95d/interactive-content-apocalipsisschool" target="_blank" download>Apocalipsis Zombi - Colegio</a><br>
-
-
-
+            videoPlayer.src = archivo;
+            videoPlayer.hidden = false;
+            videoPlayer.play();
+            statusText.innerText = "Reproduciendo Video: " + archivo.split('/').pop();
+        }
+    </script>
 </body>
 </html>
