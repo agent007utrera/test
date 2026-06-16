@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Conteo de Notas</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 14px;
+            margin: 20px;
+        }
+        button {
+            margin: 2px;
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 50%;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        #finalTable, #resetButton {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Registro de Notas</h2>
+
+<div id="buttonsContainer" style="display:none;">
+    <!-- Botones del 1 al 10 -->
+    <script>
+        for(let i=1; i<=10; i++){
+            document.write(`<button onclick="agregarNota(${i})">${i}</button>`);
+        }
+    </script>
+    <button onclick="finalizar()">Finalizar</button>
+</div>
+
+<h3>Conteo de notas:</h3>
+<table id="conteoTable">
+    <tr>
+        <th>Nota</th>
+        <th>Conteo</th>
+    </tr>
+</table>
+
+<div id="finalTable"></div>
+<div id="resetButton"></div>
+
+<script>
+    let totalAlumnos = 0;
+    const conteoNotas = Array(11).fill(0); // Índices 1 a 10
+
+    function pedirAlumnos(){
+        let alumnos = 0;
+        while(alumnos <= 0 || isNaN(alumnos)){
+            alumnos = parseInt(prompt("Introduce el número de alumnos de la clase:", "25"));
+        }
+        totalAlumnos = alumnos;
+        document.getElementById('buttonsContainer').style.display = 'block';
+    }
+
+    function agregarNota(nota){
+        if(nota < 1 || nota > 10) return;
+        conteoNotas[nota]++;
+        actualizarTabla();
+    }
+
+    function actualizarTabla(){
+        const table = document.getElementById('conteoTable');
+        table.innerHTML = '<tr><th>Nota</th><th>Conteo</th></tr>';
+        for(let i=1; i<=10; i++){
+            table.innerHTML += `<tr><td>${i}</td><td>${conteoNotas[i]}</td></tr>`;
+        }
+    }
+
+    function finalizar(){
+        if(totalAlumnos === 0) return;
+        const finalDiv = document.getElementById('finalTable');
+        let html = `<h3>Resultados finales:</h3>
+                    <table>
+                        <tr>
+                            <th>PUNTUACIÓN</th>
+                            <th>NÚMERO DE ALUMNOS</th>
+                            <th>NOTA MEDIA (%)</th>
+                        </tr>`;
+        let sumaNotas = 0;
+        let sumaAlumnos = 0;
+
+        for(let i=10; i>=1; i--){
+            let alumnosConNota = conteoNotas[i];
+            let porcentaje = Math.round((alumnosConNota / totalAlumnos) * 100);
+            html += `<tr>
+                        <td>${i}</td>
+                        <td>${alumnosConNota}</td>
+                        <td>${porcentaje}%</td>
+                    </tr>`;
+            sumaNotas += i * alumnosConNota;
+            sumaAlumnos += alumnosConNota;
+        }
+
+        let mediaTotal = sumaAlumnos > 0 ? (sumaNotas / sumaAlumnos).toFixed(2) : 0;
+        html += `<tr>
+                    <th colspan="2">Media total de la clase</th>
+                    <th>${mediaTotal}</th>
+                </tr>`;
+        html += '</table>';
+        finalDiv.innerHTML = html;
+
+        const resetDiv = document.getElementById('resetButton');
+        resetDiv.innerHTML = `<button onclick="reiniciar()">Empezar de nuevo</button>`;
+    }
+
+    function reiniciar(){
+        for(let i=1; i<=10; i++) conteoNotas[i] = 0;
+        totalAlumnos = 0;
+        actualizarTabla();
+        document.getElementById('finalTable').innerHTML = '';
+        document.getElementById('resetButton').innerHTML = '';
+        document.getElementById('buttonsContainer').style.display = 'none';
+        pedirAlumnos();
+    }
+
+    // Evento para capturar teclas del teclado
+    document.addEventListener('keydown', (event) => {
+        if(totalAlumnos === 0) return; // No hacer nada si aún no se ingresó número de alumnos
+        const key = event.key;
+        if(key >= '1' && key <= '9'){
+            agregarNota(parseInt(key));
+        } else if(key === '0'){
+            agregarNota(10); // 0 equivale a 10
+        }
+    });
+
+    // Inicializar
+    actualizarTabla();
+    pedirAlumnos();
+</script>
+
+</body>
+</html>
