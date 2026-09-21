@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English</title>
+    <link href="English_files/css2_IvOq.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --bg: #F7FFF7;
+            --text: #2F2F2F;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 3rem;
+            text-shadow: 2px 2px 0px var(--accent);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #45b7af;
+            border-bottom: 3px dashed var(--accent);
+            padding-bottom: 10px;
+            width: 100%;
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        /* Sección de reproductores */
+        .media-player-section {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            text-align: center;
+            border: 4px solid var(--secondary);
+        }
+
+        video, audio {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 15px;
+            margin-top: 15px;
+            background: #000;
+        }
+
+        /* Rejilla de botones y tarjetas */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+            border-bottom: 5px solid var(--secondary);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Estilo de botones */
+        button, .btn-link {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        button:hover, .btn-link:hover {
+            background-color: var(--primary);
+            box-shadow: 0 4px 0px #d65a5a;
+        }
+
+        .btn-audio { background-color: #ff9f43; }
+        .btn-video { background-color: #54a0ff; }
+        .btn-pdf { background-color: #ee5253; }
+        .btn-web { background-color: #10ac84; }
+
+        /* Etiquetas y textos */
+        .card p {
+            margin: 0;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .section-icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🇬🇧 English Class 🇬🇧</h1>
+
+        <div class="media-player-section">
+            <p id="media-status">Selecciona una actividad para empezar</p>
+            <audio id="reproductorAudio" controls="controls" hidden=""></audio>
+            <video id="reproductorVideo" controls="controls" hidden=""></video>
+        </div>
+
+        <h2><span class="section-icon">📺</span>Vídeos y Canciones</h2>
+        <div class="grid">
+            <div class="card">
+                <p>Listen &amp; Watch:</p>
+                <button class="btn-audio" onclick="cargarAudio('archivos/audio1.mp3')">🎵 AUDIO 1</button>
+                <button class="btn-audio" onclick="cargarAudio('archivos/audio2.mp3')">🎵 AUDIO 2</button>
+                <button class="btn-audio" onclick="cargarAudio('archivos/audio3.mp3')">🎵 AUDIO 3</button>
+            </div>
+            <div class="card">
+                <p>Days of the week:</p>
+                <button class="btn-video" onclick="cargarVideo('archivos/daysweek1.mp4')">🎬 Video 1</button>
+                <button class="btn-video" onclick="cargarVideo('archivos/daysweek2.mp4')">🎬 Video 2</button>
+            </div>
+            <div class="card">
+                <p>The House:</p>
+                <button class="btn-video" onclick="cargarVideo('archivos/house.mp4')">🏠 House Video</button>
+                <button class="btn-video" onclick="cargarVideo('archivos/housesong.mp4')">🎶 House Song</button>
+            </div>
+        </div>
+
+        <h2><span class="section-icon">🔗</span>Recursos Online</h2>
+        <div class="grid">
+            <div class="card">
+                <p>Plataformas:</p>
+                <a href="https://www.macmillaneducationeverywhere.com/" target="_blank" class="btn-link btn-web">🇬🇧 Macmillan Education</a>
+                <a href="https://www.youtube.com/?app=desktop&amp;hl=es" target="_blank" class="btn-link btn-web">▶️ YouTube</a>
+                <a href="https://agent007utrera.github.io/test/porcentajes.html" target="_blank" class="btn-link btn-web">% Porcentajes</a>
+                <a href="https://manpang.blogspot.com/p/biblioteca-de-manpang.html" target="_blank" class="btn-link btn-web">📚 Biblioteca de Manpang</a>
+                <a href="https://archivostemporales.github.io/cine/" target="_blank" class="btn-link btn-web">🎬 QuinteroFlix</a>
+                <a href="https://archivostemporales.github.io/escaperooms/" target="_blank" class="btn-link btn-web">🧩 Escape Rooms</a>
+
+            </div>
+            <div class="card">
+                <p>Wordwall Games (2º):</p>
+                <a href="https://wordwall.net/es/resource/102522867/" target="_blank" class="btn-link btn-web">🎮 Game 2-2</a>
+                <a href="https://wordwall.net/es/resource/104518736/" target="_blank" class="btn-link btn-web">🎮 Game 2-3</a>
+                <a href="https://wordwall.net/es/resource/104519049" target="_blank" class="btn-link btn-web">🎮 Game 2-4</a>
+                <a href="https://wordwall.net/es/resource/107816843" target="_blank" class="btn-link btn-web">🎮 Game 2-5</a>
+                <a href="https://wordwall.net/es/resource/108042010" target="_blank" class="btn-link btn-web">🎮 Game 2-6</a>
+            </div>
+            <div class="card">
+                <p>Wordwall Games (6º):</p>
+                <a href="https://wordwall.net/es/resource/104519902" target="_blank" class="btn-link btn-web">🎮 Game 6-3</a>
+ 		<a href="https://wordwall.net/es/resource/107757660" target="_blank" class="btn-link btn-web">🎮 Game 6-4</a>
+ 		<a href="https://wordwall.net/es/resource/110999270" target="_blank" class="btn-link btn-web">🎮 Game 6-5</a>
+ 		<a href="https://wordwall.net/es/resource/111060465" target="_blank" class="btn-link btn-web">🎮 Game 6-6</a>
+            </div>
+        </div>
+
+        <h2><span class="section-icon">📄</span>Fichas PDF</h2>
+        <div class="grid">
+            <div class="card">
+                <p>Unit 4:</p>
+                <a href="https://agent007utrera.github.io/test/archivos/6_4_activities.pdf" target="_blank" class="btn-link btn-pdf">📄 Activities</a>
+                <a href="https://agent007utrera.github.io/test/archivos/6_4_worksheets.pdf" target="_blank" class="btn-link btn-pdf">📄 Worksheets</a>
+                <a href="https://agent007utrera.github.io/test/archivos/6_4_sentences.pdf" target="_blank" class="btn-link btn-pdf">📄 Sentences</a>
+            </div>
+
+            <div class="card">
+                <p>Unit 5:</p>
+                <a href="https://agent007utrera.github.io/test/archivos/6_5_activities.pdf" target="_blank" class="btn-link btn-pdf">📄 Activities</a>
+                <a href="https://agent007utrera.github.io/test/archivos/6_5_worksheets.pdf" target="_blank" class="btn-link btn-pdf">📄 Worksheets</a>
+                <a href="https://agent007utrera.github.io/test/archivos/6_5_sentences.pdf" target="_blank" class="btn-link btn-pdf">📄 Sentences</a>
+            </div>
+
+            <div class="card">
+                <p>Unit 6:</p>
+                <a href="https://agent007utrera.github.io/test/archivos/6_6_activities.pdf" target="_blank" class="btn-link btn-pdf">📄 Activities</a>
+                <a href="https://agent007utrera.github.io/test/archivos/6_6_worksheets.pdf" target="_blank" class="btn-link btn-pdf">📄 Worksheets</a>
+                <a href="https://agent007utrera.github.io/test/archivos/6_6_sentences.pdf" target="_blank" class="btn-link btn-pdf">📄 Sentences</a>
+            </div>
+
+
+
+        </div>
+
+
+        <h2><span class="section-icon">🎲</span>Proyectos y Juegos</h2>
+        <div class="grid">
+            <div class="card">
+                <p>Juegos de dados:</p>
+                <a href="https://archivostemporales.github.io/martiandice/" target="_blank" class="btn-link btn-web">👽 Martian Dice</a>
+                <a href="https://archivostemporales.github.io/zombiedice/" target="_blank" class="btn-link btn-web">🧟 Zombie Dice</a>
+                <a href="https://archivostemporales.github.io/dalekdice/" target="_blank" class="btn-link btn-web">🤖 Dalek Dice</a>
+                <a href="https://archivostemporales.github.io/bang_dice/" target="_blank" class="btn-link btn-web">🤠 Bang Dice</a>
+ 
+<!-- 		<p>EuroCup 2024:</p> -->
+<!--            <a href="https://virtualtabletop.io/103z" target="_blank" class="btn-link btn-web">🕵️ Cluedo</a> -->
+<!--            <a href="https://wordwall.net/es/resource/89058391/english/eurocup-2024" class="btn-link">🎡 Rueda</a> -->
+<!--            <a href="archivos/euro.xlsx" class="btn-link">📊 Excel</a> -->
+<!--            <a href="https://docs.google.com/spreadsheets/d/1LxPYwWodY3ygxti_lnTt4RMl5r8PLArQ/edit" class="btn-link">🟢 Excel 5A</a> -->
+            </div>
+            <div class="card">
+                <p>The Lord of the Rings:</p>
+                <a href="https://view.genially.com/63e2c65d07d4b7001b059dca/interactive-content-the-lord-of-the-rings" target="_blank" class="btn-link">💍 Genially Game</a>
+                <button class="btn-video" onclick="cargarVideo('archivos/starport.mp4')">🎬 Starport</button>
+            </div>
+            <div class="card">
+                <p>Hero Kids:</p>
+                <a href="https://agent007utrera.github.io/test/archivos/hero_kids_guia.pdf" target="_blank" class="btn-link btn-pdf">📚 Guía PDF</a>
+                <button class="btn-video" onclick="cargarVideo('archivos/hero_kids_video.mp4')">🎬 Hero Kids Video</button>
+                <a href="https://view.genially.com/6928a4f360210cce9b579cab/interactive-content-herokidssotanoratas" target="_blank" class="btn-link">🎮 Sótano de las ratas 🐭</a>
+                <a href="https://view.genially.com/6932bbe8007afc0cdce67fbd/interactive-content-herokidshuidapiratas" target="_blank" class="btn-link">🎮 Huida de los piratas fantasmas</a>
+            </div>
+        </div>
+
+
+        <h2><span class="section-icon">🎮</span>Varios</h2>
+        <div class="grid">
+            <div class="card">
+                <p>🧟 Apocalipsis Zombi:</p>
+                <a href="https://agent007utrera.github.io/test/archivos/z_noticiario.pdf" target="_blank" class="btn-link btn-pdf">📰 Noticiario Guía</a>
+                <button class="btn-video" onclick="cargarVideo('archivos/z_noticiario.mp4')">📺 Video Noticiario</button>
+                <a href="https://agent007utrera.github.io/test/archivos/z_colegio.pdf" target="_blank" class="btn-link btn-pdf">🏫 Enclave Escolar</a>
+                <button class="btn-video" onclick="cargarVideo('archivos/z_colegio.mp4')">📺 Video Colegio</button>
+                <a href="https://view.genially.com/694884136566fce0011ae95d/interactive-content-apocalipsisschool" target="_blank" class="btn-link">🎮 Genially Zombi</a>
+                <a href="https://agent007utrera.github.io/test/archivos/granja.pdf" target="_blank" class="btn-link btn-pdf">🏡 Granja Zombi</a>
+            </div>
+
+            <div class="card">
+                <p>Stranger Things:</p>
+<!--                 <a href="archivos/st1.pdf" target="_blank" class="btn-link btn-pdf">🚲 Temporada 1</a> -->
+<!--                <a href="archivos/st2.pdf" target="_blank" class="btn-link btn-pdf">🛹 Temporada 2</a> -->
+<!--                <a href="archivos/st3.pdf" target="_blank" class="btn-link btn-pdf">🍦 Temporada 3</a> -->
+<!--                <a href="archivos/st4.pdf" target="_blank" class="btn-link btn-pdf">🕰️ Temporada 4</a> -->
+                <a href="https://archivostemporales.github.io/strangerthings/st/" target="_blank" class="btn-link btn-web">🎮 JUEGO STRANGER THINGS</a>
+                <a href="https://archivostemporales.github.io/strangerthings/" target="_blank" class="btn-link btn-pdf">📖 Novelas Stranger Things</a>    
+	    </div>
+
+            <div class="card">
+                <p>PC Fútbol:</p>
+                <a href="https://archivostemporales.github.io/pcfutbol/" target="_blank" class="btn-link btn-web">⚽ PC Fútbol 2026</a>
+                <a href="https://wordwall.net/es/resource/109863327" target="_blank" class="btn-link btn-web">🏆 Sorteo equipos</a>
+                <a href="https://agent007utrera.github.io/prueba/superfutbol_manual.pdf" target="_blank" class="btn-link btn-pdf">📚 Manual</a>
+               <a href="https://archivostemporales.github.io/hystericoach/" target="_blank" class="btn-link btn-web">⚽ Mundial Hystericoach</a>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+    <script>
+        const audioPlayer = document.getElementById("reproductorAudio");
+        const videoPlayer = document.getElementById("reproductorVideo");
+        const statusText = document.getElementById("media-status");
+
+        function cargarAudio(archivo) {
+            videoPlayer.pause();
+            videoPlayer.hidden = true;
+
+            audioPlayer.src = archivo;
+            audioPlayer.hidden = false;
+            audioPlayer.play();
+            statusText.innerText = "Reproduciendo Audio: " + archivo.split('/').pop();
+        }
+
+        function cargarVideo(archivo) {
+            audioPlayer.pause();
+            audioPlayer.hidden = true;
+
+            videoPlayer.src = archivo;
+            videoPlayer.hidden = false;
+            videoPlayer.play();
+            statusText.innerText = "Reproduciendo Video: " + archivo.split('/').pop();
+        }
+    </script>
+
+</body></html>
